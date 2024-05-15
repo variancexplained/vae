@@ -38,34 +38,114 @@ Autoencoders are a class of neural network architectures primarily used for unsu
 
 The process of training an autoencoder involves minimizing the reconstruction error between the input data and its reconstructed version. This is typically achieved by optimizing a loss function that measures the discrepancy between the input and output data.
 
-```
-{figure} ./figures/autoencoder.png
----
-width: 1200px
-name: autoencoder-fig
----
-Autoencoder
+![](https://lh7-us.googleusercontent.com/wv3pIuKMoB5E4A862rlcN85JxlLTaTcM1JY0BzkJB0GVbm_rBDsVcOP4ma-57c_mLEUhTCs4eW368tLAD8_peMo_zX7kea253bULhrYVUoxjmenup4CIm2SY_m3M4bEJIdgIM0u7JcK3wWcDa7kqT6I)
 
-```
-
-In Figure 1, the input data 𝑥 undergoes encoding through the encoder, resulting in a compressed representation 𝑧.  This compressed representation is then decoded by the decoder to reconstruct the output $\hat{x}=d(e(x))
-
-$, which ideally closely resembles the original input 𝑥.
+In Figure 1, the input data 𝑥 undergoes encoding through the encoder, resulting in a compressed representation 𝑧.  This compressed representation is then decoded by the decoder to reconstruct the output $\hat{x}=d(e(x))$, which ideally closely resembles the original input 𝑥.
 
 Autoencoders are versatile models with various applications, including dimensionality reduction, feature learning, denoising, and anomaly detection. Their ability to learn compact representations of data without the need for labeled examples makes them particularly useful for tasks where labeled data is scarce or unavailable.
 
-## Variational Autoencoders
+### Variational Autoencoders
 
 Variational autoencoders (VAEs) expand upon the basic autoencoder architecture by incorporating probabilistic principles into the encoding process. They offer a more sophisticated approach to learning compressed representations of data and generating new data points.
 
-VAEs maintain the fundamental structure of autoencoders, consisting of an encoder and a decoder. However, they diverge in how the encoder handles the encoding process in two ways:
+VAEs maintain the fundamental structure of autoencoders, consisting of an encoder and a decoder. However, they diverge in how the encoder handles the encoding process:
 
-1. **Probabilistic Mapping in Encoder**: In VAEs, the encoder maps the input data to a probability distribution over the latent space instead of directly encoding it into a fixed latent representation. Specifically, instead of outputting a single point in the latent space, the encoder outputs the parameters of a probability distribution, typically a Gaussian distribution, representing the mean $(\mu)$ and variance $(\sigma^2)$ of the distribution.  By sampling from this learned distribution during the decoding phase, the VAE can generate new data points that resemble the training data distribution. This probabilistic mapping allows for the representation of uncertainty and variability in the latent space, enhancing the flexibility and expressiveness of the model.
+1. **Probabilistic Mapping in Encoder**: In VAEs, the encoder maps the input data to a probability distribution over the latent space instead of directly encoding it into a fixed latent representation. Specifically, instead of outputting a single point in the latent space, the encoder outputs the parameters of a probability distribution, typically a Gaussian distribution, representing the mean 
+
+   $$
+   ((\mu))
+
+   $$
+
+    and variance 
+
+   $$
+   ((\sigma^2))
+
+   $$
+
+    of the distribution. Suppose we have a single input data point 
+   $$
+   (x)
+
+   $$
+
+    and the encoder outputs two parameters representing a Gaussian distribution over the latent space:
+2. Mean 
+
+   $$
+   ((\mu))
+
+   $$
+
+   : Represents the center or location of the Gaussian distribution.
+3. Variance 
+
+   $$
+   ((\sigma^2))
+
+   $$
+
+   : Represents the spread or uncertainty of the Gaussian distribution.
+
+For simplicity, let's denote the output of the encoder as 
+
+$$
+((\mu_x, \sigma_x^2))
+
+$$
+
+, where 
+$$
+( \mu_x)
+
+$$
+
+ and 
+$$
+(\sigma_x^2)
+
+$$
+
+ are the mean and variance parameters for the input data point 
+$$
+(x)
+
+$$
+
+.
+
+Given these parameters, we can define the probability density function (PDF) of the Gaussian distribution as follows:
+
+$$
+[ p(z | x) = \frac{1}{\sqrt{2\pi \sigma_x^2}} \exp\left(-\frac{(z - \mu_x)^2}{2\sigma_x^2}\right)]
+
+$$
+
+Here, 
+
+$$
+(z)
+
+$$
+
+ represents a point in the latent space. This equation describes how likely a given point 
+$$
+(z)
+
+$$
+
+ is under the Gaussian distribution defined by $(\mu_x)$ and $(\sigma_x^2)$.
+
+During training, the VAE aims to learn the parameters $\( \mu_x )$$ and \( \sigma_x^2 \) such that the generated latent space representations capture the underlying structure of the input data while balancing reconstruction accuracy and latent space regularization.
+
+By sampling from this learned distribution during the decoding phase, the VAE can generate new data points that resemble the training data distribution. This probabilistic mapping allows for the representation of uncertainty and variability in the latent space, enhancing the flexibility and expressiveness of the model.
+
 2. **Latent Space Regularization**: VAEs incorporate latent space regularization to encourage the learned latent space to approximate a predefined distribution, often a standard normal distribution. This regularization, typically achieved through the Kullback-Leibler (KL) divergence term, ensures that the latent representations are well-behaved and smoothly distributed.
 
 The probabilistic encoding in VAEs not only enables them to learn compressed representations but also facilitates the generation of new data points by sampling from the learned distribution in the latent space. This generative capability distinguishes VAEs from traditional autoencoders.
 
-![](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)Figure 2: [ENTER FIGURE ABOUT VAE ARCHITECTURE WITH PROBABILISTIC MAPPING AND LATENT SPACE REGULARIZATION HERE]
+Figure 2: [ENTER FIGURE ABOUT VAE ARCHITECTURE WITH PROBABILISTIC MAPPING AND LATENT SPACE REGULARIZATION HERE]
 
 In Figure 2, the input data \( x \) is encoded into a probability distribution characterized by mean (\( \mu \)) and variance (\( \sigma^2 \)) by the encoder. The decoder then reconstructs the output \( \hat{x} \) from a sample \( z \) drawn from this distribution.
 
