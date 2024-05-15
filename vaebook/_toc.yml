@@ -4,10 +4,10 @@
 format: jb-book
 root: 00_intro
 chapters:
-- file: understand
-- file: applications
-- file: innovate
-- file: solve
-- file: cases
-- file: challenges
-- file: conclusion
+- file: 01_understand
+- file: 02_applications
+- file: 03_innovate
+- file: 04_solve
+- file: 05_cases
+- file: 06_challenges
+- file: 07_conclusion
