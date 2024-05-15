@@ -40,9 +40,9 @@ Autoencoders are a class of neural network architectures primarily used for unsu
 
 The process of training an autoencoder involves minimizing the reconstruction error between the input data and its reconstructed version. This is typically achieved by optimizing a loss function that measures the discrepancy between the input and output data.
 
-![](https://lh7-us.googleusercontent.com/wv3pIuKMoB5E4A862rlcN85JxlLTaTcM1JY0BzkJB0GVbm_rBDsVcOP4ma-57c_mLEUhTCs4eW368tLAD8_peMo_zX7kea253bULhrYVUoxjmenup4CIm2SY_m3M4bEJIdgIM0u7JcK3wWcDa7kqT6I)
+![Autoencoder](figures/autoencoder.png)
 
-In Figure 1, the input data 𝑥 undergoes encoding through the encoder, resulting in a compressed representation 𝑧. This compressed representation is then decoded by the decoder to reconstruct the output 
+In Figure 1, the input data 𝑥 undergoes encoding through the encoder, resulting in a compressed representation 𝑧. This compressed representation is then decoded by the decoder to reconstruct the output
 
 $$
 \hat{x}=d(e(x))
@@ -64,6 +64,6 @@ VAEs maintain the fundamental structure of autoencoders, consisting of an encode
 
 The probabilistic encoding in VAEs not only enables them to learn compressed representations but also facilitates the generation of new data points by sampling from the learned distribution in the latent space. This generative capability distinguishes VAEs from traditional autoencoders.
 
-![From Autoencoder to Beta-VAE | Lil'Log](https://lilianweng.github.io/posts/2018-08-12-vae/vae-gaussian.png)
+![VAE](figures/vae.png)
 
 In Figure 2, the input data 𝑥 is encoded into a probability distribution characterized by mean (𝜇) and variance $(\sigma^{2})$ by the encoder. The decoder then reconstructs the output $(x)$ from a sample drawn from $p_{\theta}(x|z)$.
