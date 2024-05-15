@@ -1,1 +1,1 @@
-ghp-import -n -p -f ./vaebook/_build/html
+ghp-import -n -p -f vaebook/_build/html
