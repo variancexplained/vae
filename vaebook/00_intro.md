@@ -25,7 +25,7 @@ By the end of this read, you will understand how VAEs can:
 * Enable robust predictive models.
 * Address intricate business challenges.
 
-Let's explore how VAEs can position your company at the forefront of AI-driven success.
+Let's explore VAEs, how they work and why they matter.
 
 ```{tableofcontents}
 
