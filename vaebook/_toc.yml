@@ -4,10 +4,6 @@
 format: jb-book
 root: 00_intro
 chapters:
-- file: 01_understand
-- file: 02_applications
-- file: 03_innovate
-- file: 04_solve
-- file: 05_cases
-- file: 06_challenges
-- file: 07_conclusion
+- file: 01_motivation
+- file: 02_background
+- file: 03_vae
