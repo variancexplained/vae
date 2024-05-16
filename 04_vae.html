@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Variational Autoencoders: Motivation &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
+    <title>Variational Encoders: Explained &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
   
   
   
@@ -58,11 +58,11 @@
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '01_motivation';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '04_vae';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Variational Encoders: Underlying Principles" href="02_background.html" />
-    <link rel="prev" title="Variational Autoencoders: How do they work? Why do I care?" href="00_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -177,8 +179,8 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variational Autoencoders: Motivation</a></li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_motivation.html">Variational Autoencoders: Motivation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_background.html">Variational Encoders: Underlying Principles</a></li>
 </ul>
 
@@ -251,7 +253,7 @@
       
       
       
-      <li><a href="https://github.com/variancexplained/vae/issues/new?title=Issue%20on%20page%20%2F01_motivation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/variancexplained/vae/issues/new?title=Issue%20on%20page%20%2F04_vae.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -281,7 +283,7 @@
       
       
       
-      <li><a href="_sources/01_motivation.md" target="_blank"
+      <li><a href="_sources/04_vae.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +354,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -363,11 +367,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Variational Autoencoders: Motivation</h1>
+    <h1>Variational Encoders: Explained</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoder">Encoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence-lower-bound-elbo">Evidence Lower Bound (ELBO)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -377,18 +390,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="variational-autoencoders-motivation">
-<h1>Variational Autoencoders: Motivation<a class="headerlink" href="#variational-autoencoders-motivation" title="Permalink to this heading">#</a></h1>
-<p>The motivation behind variational autoencoders (VAEs) lies in the pursuit of effective generative modeling. Generative models aim to capture the underlying probability distribution of the data, enabling them to generate new samples that resemble the training data distribution. Discriminative models, on the other hand, focus on learning the boundary between different classes or categories within the data.</p>
-<p>Traditionally, generative modeling has been challenging due to the complexity of capturing the high-dimensional distribution of real-world data. VAEs address this challenge by leveraging the power of neural networks and probabilistic modeling to learn compact and structured representations of the data in a latent space. By learning a latent representation that captures the underlying structure of the data, VAEs enable efficient generation of new samples through sampling from the learned latent space distribution.</p>
-<p>The motivation behind VAEs can be characterized by the desire to:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="variational-encoders-explained">
+<h1>Variational Encoders: Explained<a class="headerlink" href="#variational-encoders-explained" title="Permalink to this heading">#</a></h1>
+<p>Having introduced the foundational principles, this section explains the basics of variational autoencoders.</p>
+<section id="encoder">
+<h2>Encoder<a class="headerlink" href="#encoder" title="Permalink to this heading">#</a></h2>
+<p>Variational Autoencoders (VAEs) provide an efficient way to optimize deep latent-variable models (DLVMs) and perform posterior inference using stochastic gradient descent (SGD). To address the intractable posterior inference in DLVMs, VAEs introduce a parametric inference model <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span>, also known as the encoder or recognition model. This model approximates the true posterior distribution <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span> by optimizing the variational parameters <span class="math notranslate nohighlight">\(\phi\)</span>, which include the weights and biases of a neural network.</p>
+<p>The encoder maps the input <span class="math notranslate nohighlight">\(x\)</span> to the parameters of a Gaussian distribution, typically the mean <span class="math notranslate nohighlight">\(\mu\)</span> and log-variance <span class="math notranslate nohighlight">\(\log \sigma\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(\mu, \log \sigma) = \text{EncoderNeuralNet}_\phi(x) \\
+q_\phi(z|x) = \mathcal{N}(z; \mu, \text{diag}(\sigma))\end{split}\]</div>
+<p>This approach, called amortized variational inference, uses a single encoder neural network to perform posterior inference for all data points simultaneously. This avoids the need for separate optimization for each datapoint, significantly improving efficiency by leveraging stochastic gradient descent (SGD).This process is known as amortized variational inference, where a single encoder neural network performs posterior inference for all data points, avoiding the need for per-datapoint optimization and leveraging the efficiency of SGD.</p>
+</section>
+<section id="evidence-lower-bound-elbo">
+<h2>Evidence Lower Bound (ELBO)<a class="headerlink" href="#evidence-lower-bound-elbo" title="Permalink to this heading">#</a></h2>
+<p>The optimization objective of a Variational Autoencoder (VAE) is the Evidence Lower Bound (ELBO), also known as the variational lower bound. ELBO is derived to provide insight into its tightness without using Jensen’s inequality. For any choice of inference model <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> and variational parameters <span class="math notranslate nohighlight">\(\phi\)</span>, the log-likelihood <span class="math notranslate nohighlight">\(\log p_\theta(x)\)</span> can be expressed as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\log p_\theta(x) = \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x)] \\ 
+= \mathbb{E}_{q_\phi(z|x)}\left[ \log \left( \frac{p_\theta(x, z)}{p_\theta(z|x)} \right) \right] \\
+= \mathbb{E}_{q_\phi(z|x)}\left[ \log \left( \frac{p_\theta(x, z) q_\phi(z|x)}{q_\phi(z|x) p_\theta(z|x)} \right) \right] \\
+= \mathbb{E}_{q_\phi(z|x)}\left[ \log \left( \frac{p_\theta(x, z)}{q_\phi(z|x)} \right) \right] + \mathbb{E}_{q_\phi(z|x)}\left[ \log \left( \frac{q_\phi(z|x)}{p_\theta(z|x)} \right) \right]
+\end{split}\]</div>
+<p>The first term is the ELBO, denoted as <span class="math notranslate nohighlight">\(L_{\theta, \phi}(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[L_{\theta, \phi}(x) = \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x, z) - \log q_\phi(z|x)]
+\]</div>
+<p>The second term is the Kullback-Leibler (KL) divergence between <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> and <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span>:
+$$</p>
+<p>\text{KL}(q_\phi(z|x) | p_\theta(z|x)) \geq 0</p>
+<div class="math notranslate nohighlight">
+\[
+The ELBO is a lower bound on the log-likelihood of the data:
+\]</div>
+<p>L_{\theta, \phi}(x) = \log p_\theta(x) - \text{KL}(q_\phi(z|x) | p_\theta(z|x)) \leq \log p_\theta(x)
+$$
+The KL divergence measures two distances:</p>
 <ol class="arabic simple">
-<li><p><strong>Learn Meaningful Representations</strong>: VAEs aim to learn meaningful and structured representations of the input data in a latent space. By capturing the underlying factors of variation in the data, VAEs facilitate the generation of new samples that preserve the essential characteristics of the input data.</p></li>
-<li><p><strong>Enable Probabilistic Generative Modeling</strong>: VAEs introduce probabilistic principles into the generative modeling process, allowing for uncertainty modeling and probabilistic inference. By modeling the latent space distribution as a probability distribution, VAEs provide a principled framework for generating new samples and assessing the likelihood of observed data.</p></li>
-<li><p><strong>Facilitate Representation Learning</strong>: VAEs serve as powerful tools for representation learning, enabling the discovery of interpretable and semantically meaningful representations of the input data. These learned representations can be used for downstream tasks such as classification, clustering, and anomaly detection.</p></li>
-<li><p><strong>Address Challenges of Traditional Generative Models</strong>: VAEs address challenges faced by traditional generative models, such as mode collapse, by introducing regularization techniques and probabilistic modeling principles. This allows VAEs to capture the complexity of the data distribution more effectively and generate diverse and realistic samples.</p></li>
+<li><p>The divergence of the approximate posterior from the true posterior.</p></li>
+<li><p>The gap between the ELBO and the marginal likelihood, also called the tightness of the bound.</p></li>
 </ol>
-<p>In summary, the motivation behind VAEs within the context of generative vs. discriminative modeling is to develop a robust and flexible framework for generative modeling that learns meaningful representations of the data and facilitates the generation of new samples with desirable properties.</p>
+<p>The closer <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> approximates the true posterior <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span>, the smaller the KL divergence and the tighter the bound.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -421,24 +465,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="00_intro.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Variational Autoencoders: How do they work? Why do I care?</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="02_background.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Variational Encoders: Underlying Principles</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -446,7 +472,21 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoder">Encoder</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence-lower-bound-elbo">Evidence Lower Bound (ELBO)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

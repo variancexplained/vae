@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="./" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Variational Encoders: Underlying Principles &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
   
@@ -28,41 +29,40 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '02_background';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Variational Encoders: Explained" href="03_vae.html" />
     <link rel="prev" title="Variational Autoencoders: Motivation" href="01_motivation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -181,7 +181,6 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_motivation.html">Variational Autoencoders: Motivation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Variational Encoders: Underlying Principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_vae.html">Variational Encoders: Explained</a></li>
 </ul>
 
     </div>
@@ -400,7 +399,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="variational-encoders-underlying-principles">
-<h1>Variational Encoders: Underlying Principles<a class="headerlink" href="#variational-encoders-underlying-principles" title="Link to this heading">#</a></h1>
+<h1>Variational Encoders: Underlying Principles<a class="headerlink" href="#variational-encoders-underlying-principles" title="Permalink to this heading">#</a></h1>
 <p>In this section, we explore the core principles underlying Variational Autoencoders (VAEs), which combine probabilistic modeling with neural networks to learn complex data distributions efficiently.</p>
 <ul class="simple">
 <li><p><strong>Probabilistic Models</strong></p></li>
@@ -412,18 +411,18 @@ document.write(`
 <li><p><strong>Intractabilities</strong></p></li>
 </ul>
 <section id="probability-models">
-<h2>Probability Models<a class="headerlink" href="#probability-models" title="Link to this heading">#</a></h2>
+<h2>Probability Models<a class="headerlink" href="#probability-models" title="Permalink to this heading">#</a></h2>
 <p>In machine learning, probabilistic models are essential for describing various phenomena observed in data. These models formalize knowledge and skills and are crucial for prediction and decision-making tasks. As data rarely provides a complete picture of the underlying phenomena, probabilistic models incorporate uncertainty by specifying probability distributions over model parameters.</p>
 <p>Probabilistic models can include both continuous and discrete variables, and the most comprehensive forms capture all correlations and dependencies between variables in a joint probability distribution. In notation, the observed variables are represented as a vector, denoted as <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, which is a random sample from an unknown true distribution <span class="math notranslate nohighlight">\(p^*(\mathbf{x})\)</span>.</p>
 <p>The learning process involves finding the parameters <span class="math notranslate nohighlight">\(\theta\)</span> of a chosen model <span class="math notranslate nohighlight">\(p_\theta(\mathbf{x})\)</span> that approximate the true data distribution <span class="math notranslate nohighlight">\(p^*(\mathbf{x})\)</span> The goal is to make <span class="math notranslate nohighlight">\(p_\theta(\mathbf{x})\)</span> as close as possible to <span class="math notranslate nohighlight">\(p^*(\mathbf{x})\)</span> for any observed data point <span class="math notranslate nohighlight">\(\mathbf{x}\)</span></p>
 <p>Flexibility in the model <span class="math notranslate nohighlight">\(p_\theta(\mathbf{x})\)</span> is crucial to adapt to different datasets effectively, while incorporating prior knowledge about the data distribution aids in constructing more accurate models. The ultimate aim is to strike a balance between model flexibility and prior knowledge to achieve an accurate representation of the underlying data distribution.</p>
 </section>
 <section id="conditional-models">
-<h2>Conditional Models<a class="headerlink" href="#conditional-models" title="Link to this heading">#</a></h2>
+<h2>Conditional Models<a class="headerlink" href="#conditional-models" title="Permalink to this heading">#</a></h2>
 <p>Conditional models, denoted as <span class="math notranslate nohighlight">\(p_\theta(y|x)\)</span>, approximate the underlying conditional distribution <span class="math notranslate nohighlight">\(p^*(y|x)\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> represents the input variable and <span class="math notranslate nohighlight">\(y\)</span> represents the output variable. These models are optimized to closely match the unknown underlying distribution <span class="math notranslate nohighlight">\(p^*(y|x)\)</span>, ensuring that for any given <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(p_\theta(y|x)\)</span> approximates <span class="math notranslate nohighlight">\(p^*(y|x)\)</span>. A common example is image classification, where <span class="math notranslate nohighlight">\(x\)</span> is an image and <span class="math notranslate nohighlight">\(y\)</span> is the corresponding class label. Conditional models become more challenging when dealing with high-dimensional output variables, such as image or video prediction tasks. Despite the complexity, the methods introduced for unconditional modeling are generally applicable to conditional models. In such cases, the conditioning data can be treated as inputs to the model, akin to parameters, albeit without optimization over their values.</p>
 </section>
 <section id="neural-networks-and-parameterized-conditional-distributions">
-<h2>Neural Networks and Parameterized Conditional Distributions<a class="headerlink" href="#neural-networks-and-parameterized-conditional-distributions" title="Link to this heading">#</a></h2>
+<h2>Neural Networks and Parameterized Conditional Distributions<a class="headerlink" href="#neural-networks-and-parameterized-conditional-distributions" title="Permalink to this heading">#</a></h2>
 <p>Parameterizing conditional distributions with neural networks involves using neural networks, a type of deep learning model, as flexible function approximators. These models consist of multiple layers of artificial neurons and are adept at learning complex relationships in data.</p>
 <p>In the context of probabilistic modeling, neural networks can represent probability distributions, such as probability density functions (PDFs) for continuous variables or probability mass functions (PMFs) for discrete variables.</p>
 <ul class="simple">
@@ -435,7 +434,7 @@ document.write(`
 <p>By using neural networks to parameterize conditional distributions, we can effectively model complex relationships between input and output variables, enabling tasks such as image classification to be addressed in a probabilistic framework. This approach leverages the scalability and flexibility of neural networks, allowing for efficient optimization and handling of large datasets.</p>
 </section>
 <section id="neural-networks-and-directed-graphical-models">
-<h2>Neural Networks and Directed Graphical Models<a class="headerlink" href="#neural-networks-and-directed-graphical-models" title="Link to this heading">#</a></h2>
+<h2>Neural Networks and Directed Graphical Models<a class="headerlink" href="#neural-networks-and-directed-graphical-models" title="Permalink to this heading">#</a></h2>
 <p>Directed Graphical Models (DGMs), also known as directed probabilistic graphical models (PGMs) or Bayesian networks, organize variables into a directed acyclic graph. In these models, the joint distribution over variables factors into prior and conditional distributions.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -444,7 +443,7 @@ p_\theta(x_1,...,x_M)=\prod_{j=1}^Mp_\theta(x_j|Pa(x_j))\]</div>
 <p>Neural networks take the parents of a variable as input and output the distributional parameters for that variable. This enables DGMs to capture complex relationships between variables. The next step is to discuss how to learn the parameters of such models when all variables are observed in the data.</p>
 </section>
 <section id="learning-in-fully-observed-models-with-neural-networks">
-<h2>Learning in Fully Observed Models with Neural Networks<a class="headerlink" href="#learning-in-fully-observed-models-with-neural-networks" title="Link to this heading">#</a></h2>
+<h2>Learning in Fully Observed Models with Neural Networks<a class="headerlink" href="#learning-in-fully-observed-models-with-neural-networks" title="Permalink to this heading">#</a></h2>
 <p>In fully observed models with neural networks, computing and differentiating the log-probability of the data under the model leads to straightforward optimization. The dataset consists of independent and identically distributed (i.i.d.) datapoints sampled from an unchanging underlying distribution.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -469,20 +468,20 @@ D=\{x^{(1)},x^{(2)},...,x^{(N)}\}=\{x^{(i)}\}_{i=1}^N=x^{(i:N)}\]</div>
 L^{MAP}(\theta)=\text{log}\space p(\theta) + L^{ML}(\theta)+\text{constant}\]</div>
 </section>
 <section id="learning-and-inference-in-deep-latent-variable-models">
-<h2>Learning and Inference in Deep Latent Variable Models<a class="headerlink" href="#learning-and-inference-in-deep-latent-variable-models" title="Link to this heading">#</a></h2>
+<h2>Learning and Inference in Deep Latent Variable Models<a class="headerlink" href="#learning-and-inference-in-deep-latent-variable-models" title="Permalink to this heading">#</a></h2>
 <section id="latent-variables">
-<h3>Latent Variables<a class="headerlink" href="#latent-variables" title="Link to this heading">#</a></h3>
+<h3>Latent Variables<a class="headerlink" href="#latent-variables" title="Permalink to this heading">#</a></h3>
 <p>In directed models with latent variables, these variables <span class="math notranslate nohighlight">\(z\)</span> are integrated into the model but remain unobserved in the dataset. Denoted as <span class="math notranslate nohighlight">\(z\)</span>, they contribute to the joint distribution <span class="math notranslate nohighlight">\(p_\theta(x, z)\)</span>, encompassing both observed <span class="math notranslate nohighlight">\(x\)</span> and latent variables. The marginal distribution <span class="math notranslate nohighlight">\(p_\theta(x)\)</span> over observed variables is obtained by integrating out the latent variables from the joint distribution. This marginal likelihood, or model evidence, captures the overall probability of observing the data under the model. Such implicit distributions over <span class="math notranslate nohighlight">\(x\)</span> offer flexibility; for instance, if <span class="math notranslate nohighlight">\(z\)</span> is discrete and <span class="math notranslate nohighlight">\(p_\theta(x|z)\)</span> is Gaussian, <span class="math notranslate nohighlight">\(p_\theta(x)\)</span> becomes a mixture-of-Gaussians distribution. With continuous <span class="math notranslate nohighlight">\(z\)</span>, <span class="math notranslate nohighlight">\(p_\theta(x)\)</span> represents an infinite mixture, potentially more expressive than discrete mixtures, referred to as compound probability distributions.</p>
 </section>
 <section id="deep-latent-variable-models">
-<h3>Deep Latent Variable Models<a class="headerlink" href="#deep-latent-variable-models" title="Link to this heading">#</a></h3>
+<h3>Deep Latent Variable Models<a class="headerlink" href="#deep-latent-variable-models" title="Permalink to this heading">#</a></h3>
 <p>Deep latent variable models (DLVMs) are models that incorporate latent variables <span class="math notranslate nohighlight">\(z\)</span> and are parameterized by neural networks. These latent variables are unobserved in the dataset but are essential for capturing underlying patterns or factors influencing the observed data <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>DLVMs offer a significant advantage in that they can model complex dependencies in the data, even when each individual factor (such as the prior or conditional distribution) in the model is relatively simple. For example, even if the prior distribution <span class="math notranslate nohighlight">\(p_\theta(z)\)</span> or the conditional distribution <span class="math notranslate nohighlight">\(p_\theta(x|z)\)</span> follows a straightforward distribution like Gaussian, the resulting marginal distribution <span class="math notranslate nohighlight">\(p_\theta(x)\)</span> can be highly complex and capable of representing almost arbitrary dependencies among the observed variables. This flexibility allows DLVMs to approximate intricate underlying distributions effectively.</p>
 <p>One of the simplest and most common DLVM structures involves factorizing the joint distribution <span class="math notranslate nohighlight">\(p_\theta(x, z)\)</span> into a product of a prior distribution <span class="math notranslate nohighlight">\(p_\theta(z)\)</span> over the latent variables and a conditional distribution <span class="math notranslate nohighlight">\(p_\theta(x|z)\)</span> given the latent variables. This factorization provides a straightforward yet powerful way to model the relationship between the observed and latent variables. The prior distribution <span class="math notranslate nohighlight">\(p_\theta(z)\)</span> represents the underlying distribution of the latent variables, while the conditional distribution <span class="math notranslate nohighlight">\(p_\theta(x|z)\)</span> captures how the observed variables are generated from the latent variables.</p>
 <p>Overall, DLVMs offer a versatile framework for learning complex representations of data, making them suitable for a wide range of applications in machine learning and artificial intelligence.</p>
 </section>
 <section id="intractabilities">
-<h3>Intractabilities<a class="headerlink" href="#intractabilities" title="Link to this heading">#</a></h3>
+<h3>Intractabilities<a class="headerlink" href="#intractabilities" title="Permalink to this heading">#</a></h3>
 <p>In deep latent variable models (DLVMs), the challenge lies in computing the marginal probability of data <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>, which is typically intractable due to the integral involved in its computation. This intractability stems from the fact that there is no analytic solution or efficient estimator for the integral involved in computing <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>.</p>
 <p>This intractability extends to the posterior distribution <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span>, which is also challenging to compute precisely. The joint distribution <span class="math notranslate nohighlight">\(p_\theta(x, z)\)</span> is computationally efficient to evaluate, and the relationship between <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span> and <span class="math notranslate nohighlight">\(p_\theta(x)\)</span> is described through a basic identity:</p>
 <div class="math notranslate nohighlight">
@@ -541,15 +540,6 @@ p_\theta(z|x)=\frac{p_\theta(x,z)}{p_\theta(x)}\]</div>
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Variational Autoencoders: Motivation</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="03_vae.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Variational Encoders: Explained</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
