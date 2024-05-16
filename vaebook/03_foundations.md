@@ -1,4 +1,5 @@
-# Variational Encoders: Underlying Principles
+# Variational Autoencoders: Mathematical Framework
+Having understood the high-level intuition of how VAEs work, we now delve into the underlying principles and mathematical framework that make VAEs effective. This includes exploring probabilistic models, conditional models, parameterizing distributions with neural networks, and the role of the evidence lower bound (ELBO) in optimizing VAEs. By connecting these elements, we can see how VAEs transform complex data into meaningful representations and back.
 
 In this section, we explore the core principles underlying Variational Autoencoders (VAEs), which combine probabilistic modeling with neural networks to learn complex data distributions efficiently.
 
@@ -33,8 +34,13 @@ In the context of probabilistic modeling, neural networks can represent probabil
 - **Probability Density Functions (PDFs)**: PDFs describe the likelihood of a continuous random variable taking on a specific value. They represent the probability of observing a particular outcome within a continuous range of possible outcomes. For example, in the case of image classification, a PDF might describe the likelihood of an image belonging to a certain class.
 - **Probability Mass Functions (PMFs)**: PMFs describe the likelihood of a discrete random variable taking on each possible value. They represent the probability of observing a specific outcome from a finite set of possible outcomes. In image classification, a PMF could describe the probability distribution over different class labels for a given image.
 
-![Neural Network](figures/nnsoftmax.png)
-
+```{figure} figures/nnsoftmax.png
+---
+height: 400px
+name: nnsoftmax-fig
+---
+Neural Network for Conditional Distributions
+```
 This is achieved by applying a softmax function to the output of the neural network, often used to convert the raw output of the network into a probability distribution. It takes a vector of arbitrary real-valued scores as input and normalizes it into a probability distribution over multiple classes. The softmax function ensures that the probabilities sum up to one, making it suitable for representing categorical distributions. In image classification tasks, the output of the neural network is passed through a softmax function to obtain the probabilities of different classes for a given input image.
 
 By using neural networks to parameterize conditional distributions, we can effectively model complex relationships between input and output variables, enabling tasks such as image classification to be addressed in a probabilistic framework. This approach leverages the scalability and flexibility of neural networks, allowing for efficient optimization and handling of large datasets.

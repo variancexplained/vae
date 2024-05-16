@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Variational Autoencoders: Motivation &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
+    <title>Variational Autoencoders: Untuition &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
   
   
   
@@ -58,11 +58,13 @@
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '01_motivation';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '02_intuition';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Variational Autoencoders: Untuition" href="02_intuition.html" />
-    <link rel="prev" title="Variational Autoencoders: How do they work? Why do I care?" href="00_intro.html" />
+    <link rel="next" title="Variational Autoencoders: Mathematical Framework" href="03_foundations.html" />
+    <link rel="prev" title="Variational Autoencoders: Motivation" href="01_motivation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,8 +180,8 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variational Autoencoders: Motivation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_intuition.html">Variational Autoencoders: Untuition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_motivation.html">Variational Autoencoders: Motivation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variational Autoencoders: Untuition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_foundations.html">Variational Autoencoders: Mathematical Framework</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_vae.html">Variational Encoders: Going Deeper</a></li>
 </ul>
@@ -236,7 +238,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/john-james-ai/BreastCancerDetection/main/v2/gh/variancexplained/BreastCancerDetection/main?urlpath=tree/jbook/01_motivation.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/john-james-ai/BreastCancerDetection/main/v2/gh/variancexplained/BreastCancerDetection/main?urlpath=tree/jbook/02_intuition.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -254,7 +256,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/variancexplained/BreastCancerDetection/blob/main/jbook/01_motivation.md" target="_blank"
+      <li><a href="https://colab.research.google.com/github/variancexplained/BreastCancerDetection/blob/main/jbook/02_intuition.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +322,7 @@
       
       
       
-      <li><a href="https://github.com/variancexplained/BreastCancerDetection/edit/main/jbook/01_motivation.md" target="_blank"
+      <li><a href="https://github.com/variancexplained/BreastCancerDetection/edit/main/jbook/02_intuition.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +339,7 @@
       
       
       
-      <li><a href="https://github.com/variancexplained/BreastCancerDetection/issues/new?title=Issue%20on%20page%20%2F01_motivation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/variancexplained/BreastCancerDetection/issues/new?title=Issue%20on%20page%20%2F02_intuition.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -367,7 +369,7 @@
       
       
       
-      <li><a href="_sources/01_motivation.ipynb" target="_blank"
+      <li><a href="_sources/02_intuition.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -384,7 +386,7 @@
       
       
       
-      <li><a href="_sources/01_motivation.md" target="_blank"
+      <li><a href="_sources/02_intuition.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -455,7 +457,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -466,11 +470,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Variational Autoencoders: Motivation</h1>
+    <h1>Variational Autoencoders: Untuition</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-introduction">Autoencoders Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-how-do-they-work">Autoencoders: How Do They Work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-autoencoders-vs-traditional-autoencoder">Variational Autoencoders vs Traditional Autoencoder</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -480,18 +494,57 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="variational-autoencoders-motivation">
-<h1>Variational Autoencoders: Motivation<a class="headerlink" href="#variational-autoencoders-motivation" title="Permalink to this heading">#</a></h1>
-<p>The motivation behind variational autoencoders (VAEs) lies in the pursuit of effective generative modeling. Generative models aim to capture the underlying probability distribution of the data, enabling them to generate new samples that resemble the training data distribution. Discriminative models, on the other hand, focus on learning the boundary between different classes or categories within the data.</p>
-<p>Traditionally, generative modeling has been challenging due to the complexity of capturing the high-dimensional distribution of real-world data. VAEs address this challenge by leveraging the power of neural networks and probabilistic modeling to learn compact and structured representations of the data in a latent space. By learning a latent representation that captures the underlying structure of the data, VAEs enable efficient generation of new samples through sampling from the learned latent space distribution.</p>
-<p>The motivation behind VAEs can be characterized by the desire to:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="variational-autoencoders-untuition">
+<h1>Variational Autoencoders: Untuition<a class="headerlink" href="#variational-autoencoders-untuition" title="Permalink to this heading">#</a></h1>
+<p>To grasp the concept of Variational Autoencoders (VAEs), it is essential first to understand traditional autoencoders.</p>
+<section id="autoencoders-introduction">
+<h2>Autoencoders Introduction<a class="headerlink" href="#autoencoders-introduction" title="Permalink to this heading">#</a></h2>
+<p>Autoencoders serve a fundamental purpose beyond just encoding and decoding data. While encoding and decoding are indeed their primary functions, the overarching goal of autoencoders is to learn a compressed representation of the input data. This compressed representation, often referred to as the latent space or latent variables, captures the most salient features or patterns present in the input data.</p>
+<p>By learning such a compressed representation, autoencoders can perform various tasks:</p>
 <ol class="arabic simple">
-<li><p><strong>Learn Meaningful Representations</strong>: VAEs aim to learn meaningful and structured representations of the input data in a latent space. By capturing the underlying factors of variation in the data, VAEs facilitate the generation of new samples that preserve the essential characteristics of the input data.</p></li>
-<li><p><strong>Enable Probabilistic Generative Modeling</strong>: VAEs introduce probabilistic principles into the generative modeling process, allowing for uncertainty modeling and probabilistic inference. By modeling the latent space distribution as a probability distribution, VAEs provide a principled framework for generating new samples and assessing the likelihood of observed data.</p></li>
-<li><p><strong>Facilitate Representation Learning</strong>: VAEs serve as powerful tools for representation learning, enabling the discovery of interpretable and semantically meaningful representations of the input data. These learned representations can be used for downstream tasks such as classification, clustering, and anomaly detection.</p></li>
-<li><p><strong>Address Challenges of Traditional Generative Models</strong>: VAEs address challenges faced by traditional generative models, such as mode collapse, by introducing regularization techniques and probabilistic modeling principles. This allows VAEs to capture the complexity of the data distribution more effectively and generate diverse and realistic samples.</p></li>
+<li><p><strong>Data Compression</strong>: Autoencoders can effectively compress high-dimensional input data into a lower-dimensional representation. This compression facilitates more efficient storage and transmission of data, especially in scenarios where storage or bandwidth is limited.</p></li>
+<li><p><strong>Dimensionality Reduction</strong>: The latent space learned by autoencoders captures the essential features of the input data while discarding redundant or less relevant information. This dimensionality reduction can aid in visualization, exploration, and understanding of complex datasets.</p></li>
+<li><p><strong>Feature Learning</strong>: Autoencoders are capable of automatically learning meaningful features from raw data without the need for manual feature engineering. This ability is particularly valuable in scenarios where identifying relevant features is challenging or time-consuming.</p></li>
+<li><p><strong>Noise Reduction</strong>: Autoencoders can learn to filter out noise or irrelevant information present in the input data during the reconstruction phase. By reconstructing the data from the encoded representation, autoencoders aim to produce outputs that closely resemble the original inputs while minimizing noise or distortion.</p></li>
 </ol>
-<p>In summary, the motivation behind VAEs within the context of generative vs. discriminative modeling is to develop a robust and flexible framework for generative modeling that learns meaningful representations of the data and facilitates the generation of new samples with desirable properties.</p>
+<p>Overall, autoencoders play a crucial role in unsupervised learning, and representation learning tasks, contributing to various applications in fields such as computer vision, natural language processing, and anomaly detection.</p>
+</section>
+<section id="autoencoders-how-do-they-work">
+<h2>Autoencoders: How Do They Work?<a class="headerlink" href="#autoencoders-how-do-they-work" title="Permalink to this heading">#</a></h2>
+<p>Primarily used for unsupervised learning tasks, autoencoders consist of two main components: an encoder and a decoder.</p>
+<ol class="arabic simple">
+<li><p><strong>Encoder</strong>: The encoder is responsible for transforming the input data into a compressed representation, often referred to as the latent space or latent variables. This transformation involves mapping the input data from its original high-dimensional space to a lower-dimensional representation. Each layer in the encoder learns increasingly abstract and compact representations of the input data.</p></li>
+<li><p><strong>Decoder</strong>: The decoder complements the encoder by reconstructing the original input data from the compressed representation generated by the encoder. It takes the compressed representation as input and maps it back to the original high-dimensional space. The decoder aims to produce outputs that closely resemble the inputs, effectively reconstructing the data.</p></li>
+</ol>
+<p>The process of training an autoencoder involves minimizing the reconstruction error between the input data and its reconstructed version. This is typically achieved by optimizing a loss function that measures the discrepancy between the input and output data.</p>
+<figure class="align-default" id="autoencoder-fig">
+<a class="reference internal image-reference" href="_images/autoencoder.png"><img alt="_images/autoencoder.png" src="_images/autoencoder.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Autoencoder Architecture</span><a class="headerlink" href="#autoencoder-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#autoencoder-fig"><span class="std std-numref">Fig. 1</span></a>, the input data <span class="math notranslate nohighlight">\(x\)</span> undergoes encoding, resulting in a compressed representation <span class="math notranslate nohighlight">\(z\)</span>. This compressed representation is then decoded by the decoder to reconstruct the output <span class="math notranslate nohighlight">\(\hat{x}\)</span>, which ideally closely resembles the original input <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Autoencoders are versatile models with various applications, including dimensionality reduction, feature learning, denoising, anomaly detection, and generative modeling. Their ability to learn compact representations of data without the need for labeled examples makes them particularly useful for tasks where labeled data is scarce or unavailable.</p>
+</section>
+<section id="variational-autoencoders-vs-traditional-autoencoder">
+<h2>Variational Autoencoders vs Traditional Autoencoder<a class="headerlink" href="#variational-autoencoders-vs-traditional-autoencoder" title="Permalink to this heading">#</a></h2>
+<p>Variational autoencoders (VAEs) expand upon the basic autoencoder architecture by incorporating probabilistic principles into the encoding process. They offer a more sophisticated approach to learning compressed representations of data and generating new data points.</p>
+<p>VAEs maintain the fundamental structure of autoencoders, consisting of an encoder and a decoder. However, they diverge in how the encoder handles the encoding process:</p>
+<ol class="arabic simple">
+<li><p><strong>Probabilistic Mapping in Encoder</strong>: In VAEs, the encoder maps the input data to a probability distribution over the latent space instead of directly encoding it into a fixed latent representation. Specifically, instead of outputting a single point in the latent space, the encoder outputs the parameters of a probability distribution, typically a Gaussian distribution, representing the mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> of the distribution.</p></li>
+<li><p><strong>Latent Space Regularization</strong>: VAEs incorporate latent space regularization to encourage the learned latent space to approximate a predefined distribution, often a standard normal distribution. This regularization, typically achieved through the Kullback-Leibler (KL) divergence term, ensures that the latent representations are well-behaved and smoothly distributed.</p></li>
+</ol>
+<p>The probabilistic encoding in VAEs not only enables them to learn compressed representations but also facilitates the generation of new data points by sampling from the learned distribution in the latent space. This generative capability distinguishes VAEs from traditional autoencoders.</p>
+<figure class="align-default" id="vae-fig">
+<a class="reference internal image-reference" href="_images/vae.png"><img alt="_images/vae.png" src="_images/vae.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Variational Autoencoder Architecture</span><a class="headerlink" href="#vae-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#vae-fig"><span class="std std-numref">Fig. 2</span></a>, the input data <span class="math notranslate nohighlight">\(x\)</span> is encoded into a probability distribution characterized by mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span> by the encoder. The decoder then reconstructs the output <span class="math notranslate nohighlight">\(\hat{x}\)</span> from a sample <span class="math notranslate nohighlight">\(z\)</span> drawn from this distribution.</p>
+<p>The training objective of VAEs involves maximizing the evidence lower bound (ELBO), which comprises two components: a reconstruction term that measures the fidelity of the reconstructed data to the original input and a regularization term, typically the KL divergence, that encourages the learned latent space to approximate the predefined distribution.</p>
+<p>By integrating both probabilistic mapping and latent space regularization, VAEs offer a flexible and powerful framework for learning compressed representations of data and generating new data points. They find applications in various domains, including generative modeling, data synthesis, and representation learning.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -525,20 +578,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="00_intro.html"
+       href="01_motivation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Variational Autoencoders: How do they work? Why do I care?</p>
+        <p class="prev-next-title">Variational Autoencoders: Motivation</p>
       </div>
     </a>
     <a class="right-next"
-       href="02_intuition.html"
+       href="03_foundations.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Variational Autoencoders: Untuition</p>
+        <p class="prev-next-title">Variational Autoencoders: Mathematical Framework</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -549,7 +602,22 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-introduction">Autoencoders Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-how-do-they-work">Autoencoders: How Do They Work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-autoencoders-vs-traditional-autoencoder">Variational Autoencoders vs Traditional Autoencoder</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

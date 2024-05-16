@@ -1,3 +1,14 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 # Variational Autoencoders: Motivation
 
 The motivation behind variational autoencoders (VAEs) lies in the pursuit of effective generative modeling. Generative models aim to capture the underlying probability distribution of the data, enabling them to generate new samples that resemble the training data distribution. Discriminative models, on the other hand, focus on learning the boundary between different classes or categories within the data.

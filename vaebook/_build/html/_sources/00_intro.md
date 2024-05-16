@@ -1,7 +1,14 @@
-```
-
-```
-
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 # Variational Autoencoders: How do they work? Why do I care?
 
 Variational Autoencoders (VAEs) are emerging as a pivotal technology that marries the precision of probabilistic modeling with the adaptability of deep learning. For leaders of growth-stage companies, harnessing the capabilities of VAEs can offer significant strategic advantages. This article provides a deep dive into:
@@ -18,6 +25,3 @@ By the end of this read, you will understand how VAEs can:
 
 So. let's explore VAEs, how they work and why they matter.
 
-```{tableofcontents}
-
-```

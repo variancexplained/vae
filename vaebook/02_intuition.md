@@ -9,10 +9,10 @@ kernelspec:
   language: python
   name: python3
 ---
-# Autoencoders
+# Variational Autoencoders: Untuition
 To grasp the concept of Variational Autoencoders (VAEs), it is essential first to understand traditional autoencoders.
 
-## Autoencoders Motivation
+## Autoencoders Introduction
 Autoencoders serve a fundamental purpose beyond just encoding and decoding data. While encoding and decoding are indeed their primary functions, the overarching goal of autoencoders is to learn a compressed representation of the input data. This compressed representation, often referred to as the latent space or latent variables, captures the most salient features or patterns present in the input data.
 
 By learning such a compressed representation, autoencoders can perform various tasks:
@@ -33,13 +33,38 @@ Primarily used for unsupervised learning tasks, autoencoders consist of two main
 
 The process of training an autoencoder involves minimizing the reconstruction error between the input data and its reconstructed version. This is typically achieved by optimizing a loss function that measures the discrepancy between the input and output data.
 
-```{figure} ../figures/autoencoder.png
+```{figure} figures/autoencoder.png
 ---
 height: 200px
 name: autoencoder-fig
 ---
 Autoencoder Architecture
 ```
-In {ref}`autoencoder-fig`, the input data $x$ undergoes encoding, resulting in a compressed representation $z$. This compressed representation is then decoded by the decoder to reconstruct the output $\hat{x}$, which ideally closely resembles the original input $x$.
+In {numref}`autoencoder-fig`, the input data $x$ undergoes encoding, resulting in a compressed representation $z$. This compressed representation is then decoded by the decoder to reconstruct the output $\hat{x}$, which ideally closely resembles the original input $x$.
 
 Autoencoders are versatile models with various applications, including dimensionality reduction, feature learning, denoising, anomaly detection, and generative modeling. Their ability to learn compact representations of data without the need for labeled examples makes them particularly useful for tasks where labeled data is scarce or unavailable.
+
+## Variational Autoencoders vs Traditional Autoencoder
+Variational autoencoders (VAEs) expand upon the basic autoencoder architecture by incorporating probabilistic principles into the encoding process. They offer a more sophisticated approach to learning compressed representations of data and generating new data points.
+
+VAEs maintain the fundamental structure of autoencoders, consisting of an encoder and a decoder. However, they diverge in how the encoder handles the encoding process:
+
+1. **Probabilistic Mapping in Encoder**: In VAEs, the encoder maps the input data to a probability distribution over the latent space instead of directly encoding it into a fixed latent representation. Specifically, instead of outputting a single point in the latent space, the encoder outputs the parameters of a probability distribution, typically a Gaussian distribution, representing the mean $\mu$ and variance $\sigma^2$ of the distribution.
+
+2. **Latent Space Regularization**: VAEs incorporate latent space regularization to encourage the learned latent space to approximate a predefined distribution, often a standard normal distribution. This regularization, typically achieved through the Kullback-Leibler (KL) divergence term, ensures that the latent representations are well-behaved and smoothly distributed.
+
+The probabilistic encoding in VAEs not only enables them to learn compressed representations but also facilitates the generation of new data points by sampling from the learned distribution in the latent space. This generative capability distinguishes VAEs from traditional autoencoders.
+
+```{figure} figures/vae.png
+---
+height: 200px
+name: vae-fig
+---
+Variational Autoencoder Architecture
+```
+
+In {numref}`vae-fig`, the input data $x$ is encoded into a probability distribution characterized by mean $\mu$ and variance $\sigma^2$ by the encoder. The decoder then reconstructs the output $\hat{x}$ from a sample $z$ drawn from this distribution.
+
+The training objective of VAEs involves maximizing the evidence lower bound (ELBO), which comprises two components: a reconstruction term that measures the fidelity of the reconstructed data to the original input and a regularization term, typically the KL divergence, that encourages the learned latent space to approximate the predefined distribution.
+
+By integrating both probabilistic mapping and latent space regularization, VAEs offer a flexible and powerful framework for learning compressed representations of data and generating new data points. They find applications in various domains, including generative modeling, data synthesis, and representation learning.

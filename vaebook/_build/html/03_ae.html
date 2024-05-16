@@ -7,8 +7,9 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Autoencoders &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
   
   
   
@@ -57,9 +58,13 @@
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
-    <link rel="index" title="Index" href="#" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_ae';</script>
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Variational Encoders: Explained" href="04_vae.html" />
+    <link rel="prev" title="Variational Encoders: Underlying Principles" href="02_background.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -121,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -150,8 +153,8 @@
       
     
     
-    <img src="_static/logo.jpg" class="logo__image only-light" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>
-    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>`);</script>
   
   
 </a></div>
@@ -176,11 +179,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_motivation.html">Variational Autoencoders: Motivation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_intuition.html">Variational Autoencoders: Untuition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_foundations.html">Variational Autoencoders: Mathematical Framework</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_vae.html">Variational Encoders: Going Deeper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_background.html">Variational Encoders: Underlying Principles</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Autoencoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_vae.html">Variational Encoders: Explained</a></li>
 </ul>
 
     </div>
@@ -235,7 +238,7 @@
       
       
       
-      <li><a href="https://github.com/variancexplained/BreastCancerDetection" target="_blank"
+      <li><a href="https://github.com/variancexplained/vae" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -252,7 +255,7 @@
       
       
       
-      <li><a href="https://github.com/variancexplained/BreastCancerDetection/issues/new?title=Issue%20on%20page%20%2Fgenindex.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/variancexplained/vae/issues/new?title=Issue%20on%20page%20%2F03_ae.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -264,6 +267,54 @@
   </span>
 <span class="btn__text-container">Open issue</span>
 </a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/03_ae.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
 </li>
       
   </ul>
@@ -305,7 +356,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -316,11 +369,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1></h1>
+    <h1>Autoencoders</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-motivation">Autoencoders Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-how-do-they-work">Autoencoders: How Do They Work?</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -330,13 +392,59 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
+  <section class="tex2jax_ignore mathjax_ignore" id="autoencoders">
+<h1>Autoencoders<a class="headerlink" href="#autoencoders" title="Permalink to this heading">#</a></h1>
+<p>To grasp the concept of Variational Autoencoders (VAEs), it is essential first to understand traditional autoencoders.</p>
+<section id="autoencoders-motivation">
+<h2>Autoencoders Motivation<a class="headerlink" href="#autoencoders-motivation" title="Permalink to this heading">#</a></h2>
+<p>Autoencoders serve a fundamental purpose beyond just encoding and decoding data. While encoding and decoding are indeed their primary functions, the overarching goal of autoencoders is to learn a compressed representation of the input data. This compressed representation, often referred to as the latent space or latent variables, captures the most salient features or patterns present in the input data.</p>
+<p>By learning such a compressed representation, autoencoders can perform various tasks:</p>
+<ol class="arabic simple">
+<li><p><strong>Data Compression</strong>: Autoencoders can effectively compress high-dimensional input data into a lower-dimensional representation. This compression facilitates more efficient storage and transmission of data, especially in scenarios where storage or bandwidth is limited.</p></li>
+<li><p><strong>Dimensionality Reduction</strong>: The latent space learned by autoencoders captures the essential features of the input data while discarding redundant or less relevant information. This dimensionality reduction can aid in visualization, exploration, and understanding of complex datasets.</p></li>
+<li><p><strong>Feature Learning</strong>: Autoencoders are capable of automatically learning meaningful features from raw data without the need for manual feature engineering. This ability is particularly valuable in scenarios where identifying relevant features is challenging or time-consuming.</p></li>
+<li><p><strong>Noise Reduction</strong>: Autoencoders can learn to filter out noise or irrelevant information present in the input data during the reconstruction phase. By reconstructing the data from the encoded representation, autoencoders aim to produce outputs that closely resemble the original inputs while minimizing noise or distortion.</p></li>
+</ol>
+<p>Overall, autoencoders play a crucial role in unsupervised learning, and representation learning tasks, contributing to various applications in fields such as computer vision, natural language processing, and anomaly detection.</p>
+</section>
+<section id="autoencoders-how-do-they-work">
+<h2>Autoencoders: How Do They Work?<a class="headerlink" href="#autoencoders-how-do-they-work" title="Permalink to this heading">#</a></h2>
+<p>Primarily used for unsupervised learning tasks, autoencoders consist of two main components: an encoder and a decoder.</p>
+<ol class="arabic simple">
+<li><p><strong>Encoder</strong>: The encoder is responsible for transforming the input data into a compressed representation, often referred to as the latent space or latent variables. This transformation involves mapping the input data from its original high-dimensional space to a lower-dimensional representation. Each layer in the encoder learns increasingly abstract and compact representations of the input data.</p></li>
+<li><p><strong>Decoder</strong>: The decoder complements the encoder by reconstructing the original input data from the compressed representation generated by the encoder. It takes the compressed representation as input and maps it back to the original high-dimensional space. The decoder aims to produce outputs that closely resemble the inputs, effectively reconstructing the data.</p></li>
+</ol>
+<p>The process of training an autoencoder involves minimizing the reconstruction error between the input data and its reconstructed version. This is typically achieved by optimizing a loss function that measures the discrepancy between the input and output data.</p>
+<figure class="align-default" id="autoencoder-fig">
+<a class="reference internal image-reference" href="_images/autoencoder.png"><img alt="_images/autoencoder.png" src="_images/autoencoder.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Autoencoder Architecture</span><a class="headerlink" href="#autoencoder-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#autoencoder-fig"><span class="std std-ref">Autoencoder Architecture</span></a>, the input data <span class="math notranslate nohighlight">\(x\)</span> undergoes encoding, resulting in a compressed representation <span class="math notranslate nohighlight">\(z\)</span>. This compressed representation is then decoded by the decoder to reconstruct the output <span class="math notranslate nohighlight">\(\hat{x}\)</span>, which ideally closely resembles the original input <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Autoencoders are versatile models with various applications, including dimensionality reduction, feature learning, denoising, anomaly detection, and generative modeling. Their ability to learn compact representations of data without the need for labeled examples makes them particularly useful for tasks where labeled data is scarce or unavailable.</p>
+</section>
+</section>
 
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
-
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -348,6 +456,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="02_background.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Variational Encoders: Underlying Principles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_vae.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Variational Encoders: Explained</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -355,7 +481,21 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-motivation">Autoencoders Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#autoencoders-how-do-they-work">Autoencoders: How Do They Work?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -376,7 +516,7 @@ By John James
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2023.
       <br/>
     
   </p>
