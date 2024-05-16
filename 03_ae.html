@@ -63,6 +63,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '03_ae';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Variational Encoders: Explained" href="04_vae.html" />
+    <link rel="prev" title="Variational Encoders: Underlying Principles" href="02_background.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,9 +179,11 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_motivation.html">Variational Autoencoders: Motivation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_background.html">Variational Encoders: Underlying Principles</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Autoencoders</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_vae.html">Variational Encoders: Explained</a></li>
 </ul>
 
     </div>
@@ -416,7 +418,7 @@ document.write(`
 <figure class="align-default" id="autoencoder-fig">
 <a class="reference internal image-reference" href="../figures/autoencoder.png"><img alt="../figures/autoencoder.png" src="../figures/autoencoder.png" style="height: 200px;" /></a>
 <figcaption>
-<p><span class="caption-text">Autoencoder Architecture</span><a class="headerlink" href="#autoencoder-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Autoencoder Architecture</span><a class="headerlink" href="#autoencoder-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In <a class="reference internal" href="#autoencoder-fig"><span class="std std-ref">Autoencoder Architecture</span></a>, the input data <span class="math notranslate nohighlight">\(x\)</span> undergoes encoding, resulting in a compressed representation <span class="math notranslate nohighlight">\(z\)</span>. This compressed representation is then decoded by the decoder to reconstruct the output <span class="math notranslate nohighlight">\(\hat{x}\)</span>, which ideally closely resembles the original input <span class="math notranslate nohighlight">\(x\)</span>.</p>
@@ -454,6 +456,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="02_background.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Variational Encoders: Underlying Principles</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_vae.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Variational Encoders: Explained</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
