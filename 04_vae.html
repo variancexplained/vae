@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Variational Encoders: Explained &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
+    <title>Variational Encoders: Going Deeper &#8212; Variational Autoencoders - What are they? How do they Work? Why care?</title>
   
   
   
@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '04_vae';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Autoencoders" href="03_ae.html" />
+    <link rel="prev" title="Variational Autoencoders: Motivation" href="01_motivation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -152,8 +152,8 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>`);</script>
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Variational Autoencoders - What are they? How do they Work? Why care? - Home"/>`);</script>
   
   
 </a></div>
@@ -180,9 +180,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_motivation.html">Variational Autoencoders: Motivation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_background.html">Variational Encoders: Underlying Principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_ae.html">Autoencoders</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variational Encoders: Explained</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Variational Encoders: Going Deeper</a></li>
 </ul>
 
     </div>
@@ -229,6 +227,73 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/john-james-ai/BreastCancerDetection/main/v2/gh/variancexplained/BreastCancerDetection/main?urlpath=tree/jbook/04_vae.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/variancexplained/BreastCancerDetection/blob/main/jbook/04_vae.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -237,7 +302,7 @@
       
       
       
-      <li><a href="https://github.com/variancexplained/vae" target="_blank"
+      <li><a href="https://github.com/variancexplained/BreastCancerDetection" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -254,7 +319,24 @@
       
       
       
-      <li><a href="https://github.com/variancexplained/vae/issues/new?title=Issue%20on%20page%20%2F04_vae.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/variancexplained/BreastCancerDetection/edit/main/jbook/04_vae.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/variancexplained/BreastCancerDetection/issues/new?title=Issue%20on%20page%20%2F04_vae.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -281,6 +363,23 @@
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/04_vae.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
       
       
       
@@ -368,7 +467,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Variational Encoders: Explained</h1>
+    <h1>Variational Encoders: Going Deeper</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,6 +479,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoder">Encoder</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence-lower-bound-elbo">Evidence Lower Bound (ELBO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-based-optimization-of-the-elbo">Stochastic Gradient-Based Optimization of the ELBO</a></li>
 </ul>
             </nav>
         </div>
@@ -391,22 +491,25 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="variational-encoders-explained">
-<h1>Variational Encoders: Explained<a class="headerlink" href="#variational-encoders-explained" title="Permalink to this heading">#</a></h1>
-<p>Having introduced the foundational principles, this section explains the basics of variational autoencoders.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="variational-encoders-going-deeper">
+<h1>Variational Encoders: Going Deeper<a class="headerlink" href="#variational-encoders-going-deeper" title="Permalink to this heading">#</a></h1>
 <section id="encoder">
 <h2>Encoder<a class="headerlink" href="#encoder" title="Permalink to this heading">#</a></h2>
-<p>Variational Autoencoders (VAEs) provide an efficient way to optimize deep latent-variable models (DLVMs) and perform posterior inference using stochastic gradient descent (SGD). To address the intractable posterior inference in DLVMs, VAEs introduce a parametric inference model <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span>, also known as the encoder or recognition model. This model approximates the true posterior distribution <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span> by optimizing the variational parameters <span class="math notranslate nohighlight">\(\phi\)</span>, which include the weights and biases of a neural network.</p>
+<p>In the last section, we introduced deep latent-variable models (DLVMs), and the problem of estimating the log-likelihood and posterior distributions in these models. Variational Autoencoders (VAEs) provide an efficient way to optimize deep latent-variable models (DLVMs) and perform posterior inference using stochastic gradient descent (SGD). To address the intractable posterior inference in DLVMs, VAEs introduce a parametric inference model <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span>, also known as the <strong>encoder</strong> or recognition model. This model <em>approximates</em> the true posterior distribution <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span> by optimizing the variational parameters <span class="math notranslate nohighlight">\(\phi\)</span>, which include the weights and biases of a neural network.</p>
 <p>The encoder maps the input <span class="math notranslate nohighlight">\(x\)</span> to the parameters of a Gaussian distribution, typically the mean <span class="math notranslate nohighlight">\(\mu\)</span> and log-variance <span class="math notranslate nohighlight">\(\log \sigma\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 (\mu, \log \sigma) = \text{EncoderNeuralNet}_\phi(x) \\
 q_\phi(z|x) = \mathcal{N}(z; \mu, \text{diag}(\sigma))\end{split}\]</div>
-<p>This approach, called amortized variational inference, uses a single encoder neural network to perform posterior inference for all data points simultaneously. This avoids the need for separate optimization for each datapoint, significantly improving efficiency by leveraging stochastic gradient descent (SGD).This process is known as amortized variational inference, where a single encoder neural network performs posterior inference for all data points, avoiding the need for per-datapoint optimization and leveraging the efficiency of SGD.</p>
+<p>This approach, called <strong>amortized variational inference</strong>, uses a single encoder neural network to perform posterior inference for all data points simultaneously. This avoids the need for separate optimization for each datapoint, significantly improving efficiency by leveraging stochastic gradient descent (SGD).</p>
 </section>
 <section id="evidence-lower-bound-elbo">
 <h2>Evidence Lower Bound (ELBO)<a class="headerlink" href="#evidence-lower-bound-elbo" title="Permalink to this heading">#</a></h2>
-<p>The optimization objective of a Variational Autoencoder (VAE) is the Evidence Lower Bound (ELBO), also known as the variational lower bound. ELBO is derived to provide insight into its tightness without using Jensen’s inequality. For any choice of inference model <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> and variational parameters <span class="math notranslate nohighlight">\(\phi\)</span>, the log-likelihood <span class="math notranslate nohighlight">\(\log p_\theta(x)\)</span> can be expressed as:</p>
+<p>Before delving into the derivation of the Evidence Lower Bound (ELBO) using the log likelihood, let’s set up the process. Our objective is to formulate a tractable optimization objective for Variational Autoencoders (VAEs) that provides insight into the model’s performance and the tightness of its approximation to the true log-likelihood. To achieve this, we aim to express the log likelihood of the data in terms of an expectation over a simpler distribution, which leads us to the ELBO. By deriving the ELBO using the log likelihood, we can establish a foundational understanding of how VAEs learn and optimize their parameters. This derivation process will offer valuable insights into the underlying principles of VAEs and their effectiveness in capturing complex data distributions.</p>
+<p>The optimization objective of a Variational Autoencoder (VAE) is the Evidence Lower Bound (ELBO), also known as the variational lower bound. ELBO is derived to provide insight into its tightness without using Jensen’s inequality.</p>
+<p>Using Jensen’s inequality in the derivation of the Evidence Lower Bound (ELBO) for Variational Autoencoders (VAEs) typically results in a looser bound compared to alternative derivations that avoid it. While Jensen’s inequality is a useful tool in many mathematical contexts, in the context of VAEs, tighter bounds are preferred because they more accurately approximate the true log-likelihood of the data.</p>
+<p>By avoiding Jensen’s inequality, we can derive the ELBO in a way that provides greater insight into its tightness. This allows us to better understand how well the ELBO approximates the true log-likelihood and how effectively the VAE model is learning the underlying data distribution. In essence, bypassing Jensen’s inequality enables a more nuanced analysis of the VAE optimization process and its performance.</p>
+<p>For any choice of inference model <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> and variational parameters <span class="math notranslate nohighlight">\(\phi\)</span>, the log-likelihood <span class="math notranslate nohighlight">\(\log p_\theta(x)\)</span> can be expressed as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \log p_\theta(x) = \mathbb{E}_{q_\phi(z|x)}[\log p_\theta(x)] \\ 
@@ -433,6 +536,22 @@ The KL divergence measures two distances:</p>
 <li><p>The gap between the ELBO and the marginal likelihood, also called the tightness of the bound.</p></li>
 </ol>
 <p>The closer <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> approximates the true posterior <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span>, the smaller the KL divergence and the tighter the bound.</p>
+<p>Thus, maximizing the  ELBO <span class="math notranslate nohighlight">\(L_{\theta, \phi}(x)\)</span> w.r.t. the parameters <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>, we concurrently optimize two things we care about:</p>
+<ol class="arabic simple">
+<li><p>Approximately maximize the marginal likelihood <span class="math notranslate nohighlight">\(p_\theta(x)\)</span>, meaning that our generative model will improve.</p></li>
+<li><p>Minimize the KL divergence of the approximation <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> from the true posterior <span class="math notranslate nohighlight">\(p_\theta(z|x)\)</span>, so <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span> also improves.</p></li>
+</ol>
+</section>
+<section id="stochastic-gradient-based-optimization-of-the-elbo">
+<h2>Stochastic Gradient-Based Optimization of the ELBO<a class="headerlink" href="#stochastic-gradient-based-optimization-of-the-elbo" title="Permalink to this heading">#</a></h2>
+<p>In stochastic gradient-based optimization of the ELBO, we exploit its key property, enabling joint optimization with respect to all parameters (φ and θ) using stochastic gradient descent (SGD). The ELBO objective, <span class="math notranslate nohighlight">\(L_{\theta, \phi}(D)\)</span>, is computed as the sum or average of individual-datapoint ELBOs over the dataset <span class="math notranslate nohighlight">\(D\)</span>. While the individual-datapoint ELBO and its gradient are generally intractable, unbiased estimators exist, facilitating minibatch SGD. Obtaining unbiased gradients of the ELBO with respect to the generative model parameters <span class="math notranslate nohighlight">\(\theta\)</span> is straightforward. However, for the variational parameters <span class="math notranslate nohighlight">\(\phi\)</span>, obtaining unbiased gradients is more challenging due to the dependence on the distribution <span class="math notranslate nohighlight">\(q_\phi(z|x)\)</span>. Nevertheless, for continuous latent variables, the reparameterization trick offers a means to compute unbiased estimates of <span class="math notranslate nohighlight">\(\nabla_{\theta, \phi} L_{\theta, \phi}(x)\)</span>, enabling optimization of the ELBO using SGD. This approach forms the basis for algorithmic implementation, facilitating efficient optimization of VAEs.</p>
+<figure class="align-default" id="sgd-vae-fig">
+<a class="reference internal image-reference" href="_images/sgd-vae.png"><img alt="_images/sgd-vae.png" src="_images/sgd-vae.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Stochastic Gradient-Based Optimization of the ELBO</span><a class="headerlink" href="#sgd-vae-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#sgd-vae-fig"><span class="std std-numref">Fig. 1</span></a> we have a simple schematic of the computational flow in the variational autoencoder.</p>
 </section>
 </section>
 
@@ -440,8 +559,8 @@ The KL divergence measures two distances:</p>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "variancexplained/BreastCancerDetection",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -467,12 +586,12 @@ The KL divergence measures two distances:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03_ae.html"
+       href="01_motivation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Autoencoders</p>
+        <p class="prev-next-title">Variational Autoencoders: Motivation</p>
       </div>
     </a>
 </div>
@@ -493,6 +612,7 @@ The KL divergence measures two distances:</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoder">Encoder</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence-lower-bound-elbo">Evidence Lower Bound (ELBO)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-based-optimization-of-the-elbo">Stochastic Gradient-Based Optimization of the ELBO</a></li>
 </ul>
   </nav></div>
 
@@ -517,7 +637,7 @@ By John James
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
