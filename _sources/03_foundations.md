@@ -1,4 +1,4 @@
-## Variational Autoencoders: Mathematical Framework
+# Variational Autoencoders: Mathematical Framework
 Having understood the high-level intuition of how VAEs work, we now delve into the underlying principles and mathematical framework that make VAEs effective. This includes exploring probabilistic models, conditional models, parameterizing distributions with neural networks, and the role of the evidence lower bound (ELBO) in optimizing VAEs. By connecting these elements, we can see how VAEs transform complex data into meaningful representations and back.
 
 In this section, we explore the core principles underlying Variational Autoencoders (VAEs), which combine probabilistic modeling with neural networks to learn complex data distributions efficiently.
